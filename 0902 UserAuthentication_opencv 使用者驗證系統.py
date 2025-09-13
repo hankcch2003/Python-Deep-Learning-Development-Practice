@@ -127,7 +127,7 @@ for test_img_name in test_images:
         print(f"無法讀取測試圖片：{predict_path}")
         continue
 
-    # 偵測並裁切人臉影像，失敗回傳None
+    # 偵測並裁切人臉影像，失敗傳回None
     predict_face = detect_and_crop_face(predict_img, face_cascade)
 
     # 若無法偵測到人臉，輸出錯誤訊息並跳過該圖片
@@ -139,4 +139,5 @@ for test_img_name in test_images:
     label, confidence = recognizer.predict(predict_face)
 
     # 輸出測試圖片名稱、預測標籤名稱與信心度
+
     print(f"測試圖片：{test_img_name}，預測結果：{images_label[label]}，信心度：{confidence:.2f}")
